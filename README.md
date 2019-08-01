@@ -7,7 +7,7 @@ Simple wrapper around XMLHttpRequest to make http call.
 #### Install using npm
 ```bash
 # install it via npm
-npm install --save ssh://git@github.com:rejuvenationinc/rj.git
+npm install --save ssh://git@github.com:rejuvenationinc/rj-xhr.git
 ```
 * This package is not on NPM, use GitHub source only.
 
@@ -16,7 +16,7 @@ npm install --save ssh://git@github.com:rejuvenationinc/rj.git
 
 ```html
 <!-- Insert the vue core before vue-toasted -->
-<script src="https://github.com/rejuvenationinc/rj/blob/master/dist/rj.js"></script>
+<script src="https://github.com/rejuvenationinc/rj/blob/master/dist/main.js"></script>
 ```
 
 ## Usage
@@ -60,7 +60,7 @@ async function request() {
 
 //post request
 RJ.post('/api/hello', {
-  data: dataoptions  //here dataoptions is a list of json data you want to pass
+  data: dataoptions  //here dataoptions is a list of json which data you want to pass to the post request
 }).then(function(response){
   //handle response
 }).catch(function(err){
