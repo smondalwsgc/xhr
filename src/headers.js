@@ -1,7 +1,8 @@
 const Headers = function(headers){
-  this.headerObj = {
+  this.requestHeader = {
     "Content-Type": "application/json"
   }
+  this.responseHeader = {}
   if (Array.isArray(headers)) {
     headers.forEach(function(header) {
       this.push(header[0], header[1])
@@ -13,8 +14,8 @@ const Headers = function(headers){
   }
 }
 
-Headers.prototype.push = function(key, value){
-  this.headerObj[key] = value
+Headers.prototype.push = function(header, key, value){
+  header[key] = value
 }
 
 export default Headers;

@@ -5,14 +5,13 @@ import Headers from './headers'
 
 function parseHeaders(rawHeaders) {
   var headers = new Headers()
-
   var preProcessedHeaders = rawHeaders.replace(/\r?\n[\t ]+/g, ' ')
   preProcessedHeaders.split(/\r?\n/).forEach(function(line) {
     var parts = line.split(':')
     var key = parts.shift().trim()
     if (key) {
       var value = parts.join(':').trim()
-      headers.push(key, value)
+      headers.push(headers.responseHeader, key, value)
     }
   })
   return headers
@@ -64,8 +63,8 @@ const XhrRequest = function(url, options={}) {
       xhr.withCredentials = request.withCredentials
 
     // xhr.setRequestHeader("Content-Type", "application/json")
-    Object.keys(request.headers.headerObj).forEach(function(key) {
-      xhr.setRequestHeader(key, request.headers.headerObj[key])
+    Object.keys(request.headers.requestHeader).forEach(function(key) {
+      xhr.setRequestHeader(key, request.headers.requestHeader[key])
     })
     xhr.send(request.body.data)
   })

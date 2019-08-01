@@ -6,11 +6,10 @@ const Response = function(bodyInit, response, options){
   this.status = response.status === undefined ? 200 : response.status
   this.ok = status.success
   this.statusText = 'statusText' in response ? response.statusText : 'OK'
-  this.headers = new Headers(options.headers)
+  this.headers = response.headers
   this.url = options.url || ''
   if(this.ok || status.client_error)
     this.data = JSON.parse(bodyInit)
-
 }
 
 export default Response;
