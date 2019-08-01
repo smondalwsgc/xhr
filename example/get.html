@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>RJ - get example</title>
+  </head>
+  <body class="container">
+    <h1>RJ.get</h1>
+    <ul id="people" class="list-unstyled"></ul>
+
+    <script src="/Users/smondal/sandip/project/rjxhr/dist/main.js"></script>
+    <script>
+      RjXhr.get('https://reqres.in/api/users/2')
+        .then(function (response) {
+        console.log(response.data.data)
+         document.getElementById('people').innerHTML = '<li>' + response.data.data.id + '</li>' +
+          '<li>' + response.data.data.email + '</li>' +
+          '<li>' + response.data.data.first_name + '</li>' +
+          '<li>' + response.data.data.last_name + '</li>'
+         })
+        .catch(function (err) {
+          document.getElementById('people').innerHTML = '<li class="text-danger">' + err.message + '</li>';
+        });
+    </script>
+  </body>
+</html>
