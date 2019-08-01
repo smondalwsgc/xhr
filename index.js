@@ -1,3 +1,5 @@
 import RjXhr from './src/rjxhr'
 import XhrRequest from './src/xhr'
-export { RjXhr, XhrRequest }
+
+export default RjXhr;
+export {XhrRequest};

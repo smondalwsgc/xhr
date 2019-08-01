@@ -5,8 +5,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: './index.js',
   output: {
-    // filename: '[name].[contenthash].js',
-    filename: 'main.js',
+    filename: '[name].[contenthash].js',
+    // filename: 'main.js',
     path: path.resolve(__dirname, '../dist'),
     libraryTarget: 'umd',
     // library:'RjXhr',
