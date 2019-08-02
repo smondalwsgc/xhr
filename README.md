@@ -16,7 +16,7 @@ npm install --save ssh://git@github.com:rejuvenationinc/rj-xhr.git
 
 ```html
 <!-- Insert the vue core before vue-toasted -->
-<script src="https://github.com/rejuvenationinc/rj/blob/master/dist/main.js"></script>
+<script src="https://github.com/rejuvenationinc/rj-xhr/tree/master/dist/main.js"></script>
 ```
 
 ## Usage
@@ -75,9 +75,9 @@ below are the options you can pass to create a Flash Message
 
 **Option**|**Type's**|**Default**|**Description**
 -----|-----|-----|-----
-data|Object|null|data object is needed on post and put request to pass to server
+data|Object|null|data object is needed on post and put request which need to send to server
 headers|Object|null| This is header information which need to pass inside header object
 withCredentials|Boolean|false| You can pass true value for cross origin request
 timeout|Milliseconds |null| You can pass timeout option, You want to get response within requested time. If the response not came within requested timeframe, then request automatically canceled.
-csrf|Boolean |true| This is needed for post, put and delete request for more information visit this site(https://en.wikipedia.org/wiki/Cross-site_request_forgery)
+csrf|Boolean |true| This is needed for post, put and delete request. If you pass false value it will not include csrf. for more information visit this site(https://en.wikipedia.org/wiki/Cross-site_request_forgery)
 auth|Object |null|  If you want to pass username:password in your request url, then you need to pass auth: {username: 'Your username', password: 'Your password'}
