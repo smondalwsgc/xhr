@@ -50,9 +50,9 @@ const XhrRequest = function(url, options={}) {
     xhr.onabort = function() {
       reject(new TypeError('Network request failed'))
     }
-
-    if(request.username != undefined  && request.password != undefined )
-      xhr.open(request.method, request.url, true, request.username, request.password)
+    
+    if(request.auth != undefined)
+      xhr.open(request.method, request.url, true, request.auth.username, request.auth.password)
     else
       xhr.open(request.method, request.url, true)
 

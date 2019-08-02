@@ -8,6 +8,7 @@ const Request = function(url, options={}){
   this.body = new Body(options)
   //  The default value is 0, which means there is no timeout.
   this.timeout = options.timeout || 0
+  this.auth = options.auth
 
   //the default value for withCredentials is false
   this.withCredentials = options.withCredentials || false

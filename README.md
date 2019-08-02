@@ -80,3 +80,4 @@ headers|Object|null| This is header information which need to pass inside header
 withCredentials|Boolean|false| You can pass true value for cross origin request
 timeout|Milliseconds |null| You can pass timeout option, You want to get response within requested time. If the response not came within requested timeframe, then request automatically canceled.
 csrf|Boolean |true| This is needed for post, put and delete request for more information visit this site(https://en.wikipedia.org/wiki/Cross-site_request_forgery)
+auth|Object |null|  If you want to pass username:password in your request url, then you need to pass auth: {username: 'Your username', password: 'Your password'}
