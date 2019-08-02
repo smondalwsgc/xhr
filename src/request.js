@@ -10,6 +10,8 @@ const Request = function(url, options={}){
   this.timeout = options.timeout || 0
   this.auth = options.auth
 
+  this.cancel = options.cancel
+
   //the default value for withCredentials is false
   this.withCredentials = options.withCredentials || false
 }

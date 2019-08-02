@@ -39,6 +39,7 @@ const XhrRequest = function(url, options={}) {
         reject(new Response(body, response, options))
       }
     }
+
     xhr.onerror = function() {
       reject(new TypeError('Network request failed'))
     }
@@ -50,11 +51,13 @@ const XhrRequest = function(url, options={}) {
     xhr.onabort = function() {
       reject(new TypeError('Network request failed'))
     }
-    
-    if(request.auth != undefined)
-      xhr.open(request.method, request.url, true, request.auth.username, request.auth.password)
-    else
-      xhr.open(request.method, request.url, true)
+
+    function abortRequest(){
+      console.log("herer")
+      xhr.abort()
+    }
+
+    xhr.open(request.method, request.url, true)
 
     //setting timeout attribute
     xhr.timeout = request.timeout
@@ -62,10 +65,22 @@ const XhrRequest = function(url, options={}) {
     if(request.withCredentials == true)
       xhr.withCredentials = request.withCredentials
 
+    //seeting for basic authorization
+    if(request.auth){
+      var username = request.auth.username || '';
+      var password = request.auth.password || '';
+      xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password));
+    }
+
+    if(request.cancel)
+    {
+      xhr.addEventListener('abort', abortRequest);
+    }
     // xhr.setRequestHeader("Content-Type", "application/json")
     Object.keys(request.headers.requestHeader).forEach(function(key) {
       xhr.setRequestHeader(key, request.headers.requestHeader[key])
     })
+
     xhr.send(request.body.data)
   })
 }

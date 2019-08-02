@@ -25,17 +25,17 @@ It is simple. couple of lines all what you need.
 
 ```javascript
 // register the plugin on vue
-import RJ from 'rj';
+import RjXhr from 'rj-xhr';
 
 // Get Request
-RJ.get('/api/hello').then(function(response){
+RjXhr.get('/api/hello').then(function(response){
   //handle response
 }).catch(function(err){
   //handle error
 })
 
 //You can pass option inside get
-RJ.get('/api/hello', {
+RjXhr.get('/api/hello', {
   timeout: 200,
   withCredentials: true
   headers: {
@@ -49,7 +49,7 @@ RJ.get('/api/hello', {
 
 //You can use async and await in latest version of ES2017
 async function request() {
-  const response = await RJ.get('/api/hello');
+  const response = await RjXhr.get('/api/hello');
   if(response.status=='ok'){
     //handle response
   }
@@ -59,7 +59,7 @@ async function request() {
 }
 
 //post request
-RJ.post('/api/hello', {
+RjXhr.post('/api/hello', {
   data: dataoptions  //here dataoptions is a list of json which data you want to pass to the post request
 }).then(function(response){
   //handle response
@@ -80,4 +80,4 @@ headers|Object|null| This is header information which need to pass inside header
 withCredentials|Boolean|false| You can pass true value for cross origin request
 timeout|Milliseconds |null| You can pass timeout option, You want to get response within requested time. If the response not came within requested timeframe, then request automatically canceled.
 csrf|Boolean |true| This is needed for post, put and delete request. If you pass false value it will not include csrf. for more information visit this site(https://en.wikipedia.org/wiki/Cross-site_request_forgery)
-auth|Object |null|  If you want to pass username:password in your request url, then you need to pass auth: {username: 'Your username', password: 'Your password'}
+auth|Object |null|  If you want to pass Basic Authorization in your request header, then you need to pass auth: {username: 'Your username', password: 'Your password'} in your options.
