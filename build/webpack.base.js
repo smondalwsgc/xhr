@@ -1,5 +1,5 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     libraryTarget: 'umd',
     // library:'RjXhr',
-    globalObject: 'this'
+    globalObject: 'this',
   },
   module: {
     rules: [
@@ -19,12 +19,10 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
-          presets: ['@babel/preset-env']
-        }
-      }
-    ]
+          presets: ['@babel/preset-env'],
+        },
+      },
+    ],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-  ]
-}
+  plugins: [new CleanWebpackPlugin()],
+};
