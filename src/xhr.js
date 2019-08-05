@@ -51,7 +51,6 @@ const XhrRequest = function(url, options = {}) {
     };
 
     function abortRequest() {
-      console.log('herer');
       xhr.abort();
     }
 
