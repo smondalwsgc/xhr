@@ -8,7 +8,7 @@ class RjXhr {
   }
   post(url, options = {}) {
     let new_options = merge_options(options, { method: 'POST' });
-    XhrRequest(url, options);
+    return XhrRequest(url, new_options);
   }
   put(url, options = {}) {
     let new_options = merge_options(options, { method: 'PUT' });

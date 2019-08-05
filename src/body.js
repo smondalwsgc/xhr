@@ -11,6 +11,9 @@ const Body = function(options) {
     let csrfToken = document.querySelector('meta[name="csrf-token"]').content;
     body[csrfParam] = csrfToken;
   }
+  if(body == null)
+  this.data = body
+  else
   this.data = JSON.stringify(body);
 };
 export default Body;
