@@ -12,8 +12,10 @@ const Body = function(options) {
     body[csrfParam] = csrfToken;
   }
   if(body == null)
-  this.data = body
+    this.data = body
+  else if (body instanceof FormData)
+    this.data = body
   else
-  this.data = JSON.stringify(body);
+    this.data = JSON.stringify(body);
 };
 export default Body;
